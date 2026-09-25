@@ -1,0 +1,10 @@
+"name": "Daily Armor",
+  "short_name": "Daily Armor",
+  "description": "Grow stronger in your faith every day.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f0ff",
+  "theme_color": "#7651b8",
+  "orientation": "portrait",
+  "icons": []
+}

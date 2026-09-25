@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Daily Armor</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="shield">🛡️</div>
+
+    <h1>Daily Armor</h1>
+
+    <p>Grow stronger in your faith every day.</p>
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- HOME -->
+    <section id="home" class="page">
+
+      <div class="welcome-card">
+        <h2>Welcome to Daily Armor 💜</h2>
+
+        <p>
+          Grow in faith, study God's Word,
+          pray, and complete daily challenges.
+        </p>
+      </div>
+
+
+      <!-- DAILY VERSE -->
+      <div class="card">
+
+        <h2>📖 Today's Verse</h2>
+
+        <p id="verseText">
+          Loading today's verse...
+        </p>
+
+        <strong id="verseReference"></strong>
+
+        <button onclick="newVerse()">
+          ✨ New Verse
+        </button>
+
+      </div>
+
+
+      <!-- PRAYER JOURNAL -->
+      <div class="card">
+
+        <h2>🙏 Prayer Journal</h2>
+
+        <textarea
+          id="prayer"
+          placeholder="Write your prayer here..."
+        ></textarea>
+
+        <button onclick="savePrayer()">
+          💜 Save Prayer
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- MONTHLY MISSION -->
+    <section id="mission" class="page hidden">
+
+      <div class="card">
+
+        <h2>🎯 Monthly Mission</h2>
+
+        <h3 id="missionTitle">
+          Loading mission...
+        </h3>
+
+        <p id="missionDescription"></p>
+
+        <button onclick="completeMission()">
+          ✅ Complete Mission
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- DAILY CHECKLIST -->
+    <section id="checklist" class="page hidden">
+
+      <div class="card">
+
+        <h2>✅ Daily Checklist</h2>
+
+        <label>
+          <input type="checkbox" class="task">
+          🙏 Pray
+        </label>
+
+        <label>
+          <input type="checkbox" class="task">
+          📖 Read the Bible
+        </label>
+
+        <label>
+          <input type="checkbox" class="task">
+          💜 Show kindness
+        </label>
+
+        <label>
+          <input type="checkbox" class="task">
+          🤝 Help someone
+        </label>
+
+        <label>
+          <input type="checkbox" class="task">
+          😊 Practice gratitude
+        </label>
+
+
+        <h3>Today's Progress</h3>
+
+        <div class="progress">
+          <div id="progressBar"></div>
+        </div>
+
+        <p id="progressText">
+          0% Complete
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- BOTTOM NAVIGATION -->
+  <nav class="bottom-nav">
+
+    <button
+      class="nav-button active"
+      onclick="showPage('home', this)"
+    >
+      <span class="nav-icon">🏠</span>
+      <small>Home</small>
+    </button>
+
+
+    <button
+      class="nav-button"
+      onclick="showPage('mission', this)"
+    >
+      <span class="nav-icon">🎯</span>
+      <small>Mission</small>
+    </button>
+
+
+    <button
+      class="nav-button"
+      onclick="showPage('checklist', this)"
+    >
+      <span class="nav-icon">✅</span>
+      <small>Checklist</small>
+    </button>
+
+  </nav>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,280 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f0ff;
+  color: #302044;
+  padding-bottom: 90px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.app-header {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #7651b8, #b895ed);
+  color: white;
+  border-radius: 0 0 30px 30px;
+}
+
+.shield {
+  font-size: 45px;
+  margin-bottom: 5px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 34px;
+}
+
+.app-header p {
+  margin: 8px 0 0;
+  font-size: 16px;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+main {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px 15px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card,
+.welcome-card {
+  background: white;
+  border-radius: 22px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 5px 18px rgba(70, 40, 100, 0.12);
+}
+
+.welcome-card {
+  text-align: center;
+}
+
+.card h2,
+.welcome-card h2 {
+  margin-top: 0;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+  border: none;
+  border-radius: 14px;
+  padding: 13px 20px;
+  background: #7651b8;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #60409b;
+}
+
+
+/* =========================
+   TEXT BOXES
+========================= */
+
+textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 13px;
+  margin: 8px 0 15px;
+
+  border: 2px solid #ddd0f2;
+  border-radius: 14px;
+
+  resize: vertical;
+
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #8e63d9;
+}
+
+
+/* =========================
+   CHECKLIST
+========================= */
+
+label {
+  display: block;
+
+  padding: 14px;
+  margin: 9px 0;
+
+  background: #f5f0ff;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+}
+
+label input {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress {
+  width: 100%;
+  height: 20px;
+
+  background: #e5ddf2;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  margin-top: 10px;
+}
+
+#progressBar {
+  width: 0%;
+  height: 100%;
+
+  background: #8e63d9;
+
+  border-radius: 20px;
+
+  transition: width 0.3s;
+}
+
+#progressText {
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* =========================
+   HIDDEN PAGES
+========================= */
+
+.hidden {
+  display: none;
+}
+
+
+/* =========================
+   BOTTOM APP BAR
+========================= */
+
+.bottom-nav {
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 78px;
+
+  background: white;
+
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
+
+  border-top: 1px solid #e5ddf2;
+
+  box-shadow: 0 -5px 18px rgba(70, 40, 100, 0.12);
+
+  z-index: 1000;
+}
+
+
+/* =========================
+   NAVIGATION BUTTONS
+========================= */
+
+.nav-button {
+  width: 33%;
+  height: 70px;
+
+  background: transparent;
+
+  color: #796b87;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  padding: 5px;
+
+  font-size: 12px;
+}
+
+.nav-button:hover {
+  background: #f5f0ff;
+}
+
+.nav-icon {
+  font-size: 25px;
+}
+
+
+/* ACTIVE BUTTON */
+
+.nav-button.active {
+  color: #7651b8;
+  font-weight: bold;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+  .app-header {
+    padding: 25px 15px;
+  }
+
+  .app-header h1 {
+    font-size: 29px;
+  }
+
+  main {
+    padding: 15px 10px;
+  }
+
+  .card,
+  .welcome-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+}

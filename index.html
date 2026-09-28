@@ -8,192 +8,320 @@
   <title>Daily Armor</title>
 
   <link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="app-header">
-    <div class="shield">🛡️</div>
+  <!-- LOGIN -->
+  <div id="loginPage" class="login-page">
 
-    <h1>Daily Armor</h1>
+    <div class="login-card">
 
-    <p>Grow stronger in your faith every day.</p>
-  </header>
+      <div class="login-shield">🛡️</div>
 
+      <h1>Daily Armor</h1>
 
-  <!-- MAIN CONTENT -->
-  <main>
+      <p>Grow stronger in your faith every day.</p>
 
-    <!-- HOME -->
-    <section id="home" class="page">
+      <h2 id="loginTitle">Welcome Back 💜</h2>
 
-      <div class="welcome-card">
-        <h2>Welcome to Daily Armor 💜</h2>
+      <input
+        type="text"
+        id="loginName"
+        placeholder="Your name"
+      >
 
-        <p>
-          Grow in faith, study God's Word,
-          pray, and complete daily challenges.
-        </p>
-      </div>
+      <input
+        type="email"
+        id="loginEmail"
+        placeholder="Email"
+      >
 
+      <input
+        type="password"
+        id="loginPassword"
+        placeholder="Password"
+      >
 
-      <!-- DAILY VERSE -->
-      <div class="card">
+      <button onclick="login()">
+        🔐 Log In
+      </button>
 
-        <h2>📖 Today's Verse</h2>
+      <button class="secondary-button" onclick="showSignup()">
+        ✨ Create Account
+      </button>
 
-        <p id="verseText">
-          Loading today's verse...
-        </p>
+      <p id="loginMessage"></p>
 
-        <strong id="verseReference"></strong>
+    </div>
 
-        <button onclick="newVerse()">
-          ✨ New Verse
-        </button>
-
-      </div>
-
-
-      <!-- PRAYER JOURNAL -->
-      <div class="card">
-
-        <h2>🙏 Prayer Journal</h2>
-
-        <textarea
-          id="prayer"
-          placeholder="Write your prayer here..."
-        ></textarea>
-
-        <button onclick="savePrayer()">
-          💜 Save Prayer
-        </button>
-
-      </div>
-
-    </section>
+  </div>
 
 
-    <!-- MONTHLY MISSION -->
-    <section id="mission" class="page hidden">
+  <!-- APP -->
+  <div id="app" class="hidden">
 
-      <div class="card">
+    <!-- HEADER -->
+    <header class="app-header">
 
-        <h2>🎯 Monthly Mission</h2>
+      <div class="shield">🛡️</div>
 
-        <h3 id="missionTitle">
-          Loading mission...
-        </h3>
+      <h1>Daily Armor</h1>
 
-        <p id="missionDescription"></p>
+      <p>Grow stronger in your faith every day.</p>
 
-        <button onclick="completeMission()">
-          ✅ Complete Mission
-        </button>
-
-      </div>
-
-    </section>
+    </header>
 
 
-    <!-- DAILY CHECKLIST -->
-    <section id="checklist" class="page hidden">
+    <main>
 
-      <div class="card">
+      <!-- HOME -->
+      <section id="home" class="page">
 
-        <h2>✅ Daily Checklist</h2>
+        <div class="welcome-card">
 
-        <label>
-          <input type="checkbox" class="task">
-          🙏 Pray
-        </label>
+          <h2>
+            Welcome to Daily Armor 💜
+          </h2>
 
-        <label>
-          <input type="checkbox" class="task">
-          📖 Read the Bible
-        </label>
+          <p>
+            Grow in faith, study God's Word,
+            pray, and complete daily challenges.
+          </p>
 
-        <label>
-          <input type="checkbox" class="task">
-          💜 Show kindness
-        </label>
-
-        <label>
-          <input type="checkbox" class="task">
-          🤝 Help someone
-        </label>
-
-        <label>
-          <input type="checkbox" class="task">
-          😊 Practice gratitude
-        </label>
-
-
-        <h3>Today's Progress</h3>
-
-        <div class="progress">
-          <div id="progressBar"></div>
         </div>
 
-        <p id="progressText">
-          0% Complete
-        </p>
 
-      </div>
+        <!-- DAILY VERSE -->
+        <div class="card">
 
-    </section>
+          <h2>📖 Today's Verse</h2>
 
-  </main>
+          <p id="verseText">
+            Loading today's verse...
+          </p>
 
+          <strong id="verseReference"></strong>
 
-  <!-- BOTTOM NAVIGATION -->
-  <nav class="bottom-nav">
+          <button onclick="newVerse()">
+            ✨ New Verse
+          </button>
 
-    <button
-      class="nav-button active"
-      onclick="showPage('home', this)"
-    >
-      <span class="nav-icon">🏠</span>
-      <small>Home</small>
-    </button>
+        </div>
 
 
-    <button
-      class="nav-button"
-      onclick="showPage('mission', this)"
-    >
-      <span class="nav-icon">🎯</span>
-      <small>Mission</small>
-    </button>
+        <!-- PRAYER JOURNAL -->
+        <div class="card">
+
+          <h2>🙏 Prayer Journal</h2>
+
+          <textarea
+            id="prayer"
+            placeholder="Write your prayer here..."
+          ></textarea>
+
+          <button onclick="savePrayer()">
+            💜 Save Prayer
+          </button>
+
+        </div>
 
 
-    <button
-      class="nav-button"
-      onclick="showPage('checklist', this)"
-    >
-      <span class="nav-icon">✅</span>
-      <small>Checklist</small>
-    </button>
+        <!-- SAVED PRAYERS -->
+        <div class="card">
 
-  </nav>
+          <h2>💜 Saved Prayers</h2>
+
+          <div id="savedPrayers">
+            <p>No saved prayers yet.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- STUDIES -->
+      <section id="studies" class="page hidden">
+
+        <div class="card">
+
+          <h2>📖 Bible Study</h2>
+
+          <h3 id="studyVerseText">
+            Loading verse...
+          </h3>
+
+          <strong id="studyVerseReference"></strong>
+
+          <textarea
+            id="studyText"
+            placeholder="Write what you learned about this verse..."
+          ></textarea>
+
+          <button onclick="saveStudy()">
+            💾 Save Study
+          </button>
+
+        </div>
+
+
+        <!-- SAVED STUDIES -->
+        <div class="card">
+
+          <h2>📚 Saved Studies</h2>
+
+          <div id="savedStudies">
+            <p>No saved studies yet.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- MONTHLY MISSION -->
+      <section id="mission" class="page hidden">
+
+        <div class="card">
+
+          <h2>🎯 Monthly Mission</h2>
+
+          <h3 id="missionTitle">
+            Loading mission...
+          </h3>
+
+          <p id="missionDescription"></p>
+
+          <button onclick="completeMission()">
+            ✅ Complete Mission
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- DAILY CHECKLIST -->
+      <section id="checklist" class="page hidden">
+
+        <div class="card">
+
+          <h2>✅ Daily Checklist</h2>
+
+          <label>
+            <input type="checkbox" class="task">
+            🙏 Pray
+          </label>
+
+          <label>
+            <input type="checkbox" class="task">
+            📖 Read the Bible
+          </label>
+
+          <label>
+            <input type="checkbox" class="task">
+            💜 Show kindness
+          </label>
+
+          <label>
+            <input type="checkbox" class="task">
+            🤝 Help someone
+          </label>
+
+          <label>
+            <input type="checkbox" class="task">
+            😊 Practice gratitude
+          </label>
+
+          <h3>Today's Progress</h3>
+
+          <div class="progress">
+            <div id="progressBar"></div>
+          </div>
+
+          <p id="progressText">
+            0% Complete
+          </p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+
+      <button
+        class="nav-button active"
+        onclick="showPage('home', this)"
+      >
+        <span class="nav-icon">🏠</span>
+        <small>Home</small>
+      </button>
+
+
+      <button
+        class="nav-button"
+        onclick="showPage('studies', this)"
+      >
+        <span class="nav-icon">📖</span>
+        <small>Studies</small>
+      </button>
+
+
+      <button
+        class="nav-button"
+        onclick="showPage('mission', this)"
+      >
+        <span class="nav-icon">🎯</span>
+        <small>Mission</small>
+      </button>
+
+
+      <button
+        class="nav-button"
+        onclick="showPage('checklist', this)"
+      >
+        <span class="nav-icon">✅</span>
+        <small>Checklist</small>
+      </button>
+
+    </nav>
+
+  </div>
 
 
   <script src="script.js"></script>
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./service-worker.js")
-        .then(() => {
-          console.log("Daily Armor is ready to install!");
-        })
-        .catch(error => {
-          console.log("Service worker registration failed:", error);
-        });
-    });
-  }
-</script>
+
+  <script>
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener("load", () => {
+
+        navigator.serviceWorker.register("./service-worker.js")
+
+          .then(() => {
+            console.log("Daily Armor is ready to install!");
+          })
+
+          .catch(error => {
+            console.log(
+              "Service worker registration failed:",
+              error
+            );
+          });
+
+      });
+
+    }
+
+  </script>
+
 </body>
 
 </html>

@@ -867,3 +867,7 @@ document.addEventListener(
 
   }
 );
+function logout() {
+  localStorage.removeItem("dailyArmorLoggedIn");
+  location.reload();
+}

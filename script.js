@@ -538,69 +538,86 @@ function loadPrayers() {
    SAVE STUDY
 ========================= */
 
-function saveStudy() {
+function loadPrayers() {
 
-  const study =
-    document.getElementById("studyText")
-      .value.trim();
+  const container =
+    document.getElementById(
+      "savedPrayers"
+    );
 
 
-  if (!study) {
+  const prayers =
+    JSON.parse(
+      localStorage.getItem(
+        "dailyArmorPrayers"
+      )
+    ) || [];
 
-    alert("Write something about the verse first. 📖");
+
+  if (prayers.length === 0) {
+
+    container.innerHTML =
+      "<p>No saved prayers yet.</p>";
 
     return;
 
   }
 
 
-  const verse =
-    verses[currentVerse];
+  container.innerHTML = "";
 
 
-  const studies =
+  prayers.slice().reverse()
+    .forEach((prayer, reversedIndex) => {
+
+      const actualIndex =
+        prayers.length - 1 - reversedIndex;
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        "saved-item";
+
+
+      item.innerHTML = `
+        <p>"${escapeHTML(prayer.text)}"</p>
+        <small>${prayer.date}</small>
+
+        <button
+          class="delete-button"
+          onclick="deletePrayer(${actualIndex})">
+          🗑️ Delete
+        </button>
+      `;
+
+
+      container.appendChild(item);
+
+    });
+
+}function deletePrayer(index) {
+
+  const prayers =
     JSON.parse(
       localStorage.getItem(
-        "dailyArmorStudies"
+        "dailyArmorPrayers"
       )
     ) || [];
 
 
-  studies.push({
-
-    verse:
-      verse.text,
-
-    reference:
-      verse.reference,
-
-    study:
-      study,
-
-    date:
-      new Date().toLocaleString()
-
-  });
+  prayers.splice(index, 1);
 
 
   localStorage.setItem(
-    "dailyArmorStudies",
-    JSON.stringify(studies)
+    "dailyArmorPrayers",
+    JSON.stringify(prayers)
   );
 
 
-  document.getElementById("studyText")
-    .value = "";
-
-
-  loadStudies();
-
-
-  alert("Your study was saved! 📖💜");
+  loadPrayers();
 
 }
-
-
 /* =========================
    LOAD SAVED STUDIES
 ========================= */
